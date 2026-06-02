@@ -52,10 +52,10 @@ public class Heap {
         int index = 0;
         int smallest;
         int left = ((2 * index) + 1);
-        int right = ((2 * index) + 2);
+        int right;
         
 
-        while ( left < heap.size() || right < heap.size()) {
+        while ( left < heap.size()) {
             smallest = index;
             left = ((2 * index) + 1);
             right = ((2 * index) + 2);
@@ -82,6 +82,7 @@ public class Heap {
     }
 
     public int peek() {
+        if (isEmpty()) throw new NoSuchElementException("Heap is empty");
         return heap.get(0);
     }
 
