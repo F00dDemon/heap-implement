@@ -1,3 +1,7 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.NoSuchElementException;
+
 /**
  * A min-heap. 
  * 
@@ -22,5 +26,66 @@
  *  - hold private instance variables
  */
 public class Heap {
+    private final List<Integer> heap;
 
+    public Heap() {
+        heap = new ArrayList<>();
+    }
+
+    public void add(int num) { 
+        heap.add(num);
+        int i = heap.size() - 1;
+        while (i != 0 &&  heap.get(i) < heap.get((i - 1) / 2)) {
+            int j = heap.get(i);
+            heap.set(i, heap.get((i - 1) / 2));
+            heap.set((i - 1) / 2, j);
+            i = (i - 1) / 2;
+        }
+    }
+
+    public int pop() {
+        if (isEmpty()) throw new NoSuchElementException("Heap is empty");
+        int root = heap.get(0);
+        heap.set(0, heap.get(heap.size() - 1));
+        heap.remove(heap.size() - 1);
+
+        int index = 0;
+        int smallest;
+        int left = ((2 * index) + 1);
+        int right = ((2 * index) + 2);
+        
+
+        while ( left < heap.size() || right < heap.size()) {
+            smallest = index;
+            left = ((2 * index) + 1);
+            right = ((2 * index) + 2);
+
+            if (left < heap.size() && heap.get(left) < heap.get(smallest)) {
+                smallest = left;
+            }
+            if (right < heap.size() && heap.get(right) < heap.get(smallest)) {
+                smallest = right;
+            }
+            if (smallest == index) break;
+
+            int temp = heap.get(index);
+            heap.set(index, heap.get(smallest));
+            heap.set(smallest, temp);
+            index = smallest;
+        }
+
+        return root;
+    }
+
+    public boolean isEmpty() {
+        return heap.isEmpty();
+    }
+
+    public int peek() {
+        return heap.get(0);
+    }
+
+    public int size() {
+        return heap.size();
+    }
 }
