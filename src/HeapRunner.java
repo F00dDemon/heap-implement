@@ -11,7 +11,7 @@ import java.util.Scanner;
  *   - Check whether the heap is empty
  *   - Quit
  * 
- * Wherever you see TODO comments, you will need to fill in the appropriate
+ * Wherever you see comments, you will need to fill in the appropriate
  * code to construct your Heap or call one of its methods. The method names
  * and return types are up to you based on your design decisions.
  */
@@ -39,27 +39,27 @@ public class HeapRunner {
                     continue;
                 }
  
-                // TODO: Call your "add" method on the heap, passing in 'value'.
-                // TODO: Print message letting user know value was added
-                heap.add(4);
+                // Call your "add" method on the heap, passing in 'value'.
+                // Print message letting user know value was added
+                heap.add(value);
                 System.out.println(heap.peek());
  
             } else if (choice.equals("p") || choice.equals("pop")) {
-                // TODO: Call your "pop" method and print the result.
+                // Call your "pop" method and print the result.
                 System.out.println(heap.pop());
                 // Properly handle the case of an empty heap!
 
             } else if (choice.equals("k") || choice.equals("peek")) {
-                // TODO: Call your "peek" method and print the result
+                // Call your "peek" method and print the result
                 System.out.println(heap.peek());
                 // Properly handle the case of an empty heap!
 
             } else if (choice.equals("s") || choice.equals("size")) {
-                // TODO: Call your "size" method and print the result
+                // Call your "size" method and print the result
                 System.out.println(heap.size());
 
             } else if (choice.equals("e") || choice.equals("empty")) {
-                // TODO: Call your "isEmpty" method and print the result
+                // Call your "isEmpty" method and print the result
                 System.out.println(heap.isEmpty());
 
             } else if (choice.equals("q") || choice.equals("quit")) {
